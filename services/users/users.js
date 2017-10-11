@@ -35,7 +35,7 @@ module.exports = {
 			}
 		}
 
-		dcl.create(data, 'user', cb);
+		dcl.create(data, 'User', cb);
 	},
 
 	updateUserById : function (req, callback) {
