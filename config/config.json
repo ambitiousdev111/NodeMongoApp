@@ -1,0 +1,56 @@
+{
+    "local":{
+        "username": "learningapp",
+ 
+        "password":  "learningapp",
+ 
+        "database": "learningapp_local",
+ 
+        "host": "localhost",
+ 
+        "dialect": "mysql"
+    },
+
+    "development": {
+ 
+        "username": "bd24bd965adf20",
+ 
+        "password": "65545e1b",
+ 
+        "database": "learningapp_dev",
+ 
+        "host": "in-cdbr-azure-central-b.cloudapp.net",
+ 
+        "dialect": "mysql"
+ 
+    },
+ 
+    "test": {
+ 
+        "username": "",
+ 
+        "password": null,
+ 
+        "database": "",
+ 
+        "host": "",
+ 
+        "dialect": "mysql"
+ 
+    },
+ 
+    "production": {
+ 
+        "username": "bd24bd965adf20",
+ 
+        "password": "65545e1b",
+ 
+        "database": "learningapp_dev",
+ 
+        "host": "in-cdbr-azure-central-b.cloudapp.net",
+ 
+        "dialect": "mysql"
+ 
+    }
+ 
+}
