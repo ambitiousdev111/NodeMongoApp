@@ -1,60 +1,109 @@
- var dcl = require('../../dcl');
+/**
+ * users.js
+ *
+ * @description :: Server-side logic for managing users.
+ */
+
+var dcl = require('../../dcl');
+var userModel = require('../../models/user');
 
 module.exports = {
 
-	findMySuperUser : function (req, callback) {
+    /**
+     * list
+     */
+    list: (req, res) => {
 
-		var id = req.params.id;
-
-		var cb = function(response){
+    	var cb = (response) => {
 			if(response.status === 'success'){
 				// do something with data
-				callback(response);
+				res.send(response);
 			} else {
 				// do something with error
-				callback(response);
+				res.send(response);
 			}
 		}
+       
+        dcl.getAll(userModel, cb);
+    },
 
-		dcl.getById(id, 'user', cb);
-	},
+    /**
+     * show
+     */
+    show: (req, res) => {
 
-	create : function (req, callback) {
+        var id = req.params.id;
 
-		var data = req.body;
-
-		// Apply validations hare
-
-		var cb = function(response){
+        var cb = (response) => {
 			if(response.status === 'success'){
 				// do something with data
-				callback(response);
+				res.send(response);
 			} else {
 				// do something with error
-				callback(response);
+				res.send(response);
 			}
 		}
+       
+        dcl.getById(id, userModel, cb);
+    },
 
-		dcl.create(data, 'User', cb);
-	},
+    /**
+     * create
+     */
+    create: (req, res) => {
+        
+        let data = req.body;
 
-	updateUserById : function (req, callback) {
-		var id = req.params.id;
-		var data = req.body;
-
-		// Apply validations hare
-
-		var cb = function(response){
+        var cb = (response) => {
 			if(response.status === 'success'){
 				// do something with data
-				callback(response);
+				res.send(response);
 			} else {
 				// do something with error
-				callback(response);
+				res.send(response);
 			}
 		}
+       
+        dcl.create(data, userModel, cb);
+    },
 
-		dcl.updateById(id,data, 'user', cb);
-	}
+    /**
+     * carController.update()
+     */
+    update: (req, res) => {
 
-}
+    	let id = req.params.id;
+    	let data = req.body;
+
+        var cb = (response) => {
+			if(response.status === 'success'){
+				// do something with data
+				res.send(response);
+			} else {
+				// do something with error
+				res.send(response);
+			}
+		}
+       
+        dcl.update(id, data, userModel, cb);
+    },
+
+    /**
+     * remove
+     */
+    remove: (req, res) => {
+        let id = req.params.id;
+
+        var cb = (response) => {
+			if(response.status === 'success'){
+				// do something with data
+				res.send(response);
+			} else {
+				// do something with error
+				res.send(response);
+			}
+		}
+       
+        dcl.delete(id, userModel, cb);
+    }
+};
