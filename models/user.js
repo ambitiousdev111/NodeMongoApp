@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var branchModel = require('./branch')
-
+var branchModel = require('./branch');
+var roleModel = require('./role');
 
 var userSchema = new Schema({
 		_id: Schema.Types.ObjectId,
@@ -29,10 +29,14 @@ var userSchema = new Schema({
 			type: Schema.Types.ObjectId, 
 			ref:  branchModel.Branch 
 		}],
-		createdBy:[{
+		role_id:{
+			type: Schema.Types.ObjectId,
+			ref: roleModel.Role
+		},
+		createdBy:{
 			type: Schema.Types.ObjectId, 
 			ref:  userSchema
-		}],
+		},
 		password: String
 	});
 

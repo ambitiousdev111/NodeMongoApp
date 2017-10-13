@@ -8,7 +8,8 @@ var dotenv = require('dotenv');
 var env = dotenv.load();
 
 var index = require('./routes/index');
-var users = require('./routes/users');
+var users = require('./routes/userRoute');
+var seeders = require('./routes/seederRoute');
 
 
 var app = express();
@@ -30,6 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/seed',seeders);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

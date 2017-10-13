@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var Schema = mongoose.schema;
+var Schema = mongoose.Schema;
 
 var roleSchema = new Schema({
 	_id: Schema.Types.ObjectId,
@@ -14,7 +14,7 @@ var roleSchema = new Schema({
 		required: true
 	},
 	permissions: [{
-		type:string,
+		type: String,
 		trim:true,
 		required:true
 	}]

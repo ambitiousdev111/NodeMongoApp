@@ -13,6 +13,9 @@ var planSchema =new Schema({
 			type: String,
 			trim: true,
 			required: true
+		},
+		validityInDays:{
+			type:Number
 		}
 	});
 
