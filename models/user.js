@@ -27,11 +27,11 @@ var userSchema = new Schema({
 		},
 		branches:[{
 			type: Schema.Types.ObjectId, 
-			ref:  branchModel.Branch 
+			ref:  branchModel 
 		}],
 		role_id:{
 			type: Schema.Types.ObjectId,
-			ref: roleModel.Role
+			ref: roleModel
 		},
 		createdBy:{
 			type: Schema.Types.ObjectId, 

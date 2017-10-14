@@ -10,18 +10,13 @@ var branchSchema = new Schema({
 		trim: true,
 		required: true
 	},
-	uniqueName: {
-		type: String,
-		trim: true,
-		required: true
-	},
 	createdBy: {
 		type: Schema.Types.ObjectId,
-		ref: userModel.User
+		ref: userModel
 	},
 	companyId:{
 		type: Schema.Types.ObjectId,
-		ref: companyModel.Company
+		ref: companyModel
 	},
 	gstNumber: String,
 	address: String,

@@ -1,7 +1,7 @@
 /**
- * users.js
+ * branch.js
  *
- * @description :: Server-side logic for managing users.
+ * @description :: Server-side logic for managing branches.
  */
 
 var dcl = require('../../dcl');
@@ -23,7 +23,7 @@ module.exports = {
 			}
 		}
        
-        dcl.getAll('User', cb);
+        dcl.getAll('Branch', cb);
     },
 
     /**
@@ -43,7 +43,7 @@ module.exports = {
 			}
 		}
        
-        dcl.getById(id, 'User', cb);
+        dcl.getById(id, 'Branch', cb);
     },
 
     /**
@@ -63,7 +63,7 @@ module.exports = {
 			}
 		}
        
-        dcl.create(data, 'User', cb);
+        dcl.create(data, 'Branch', cb);
     },
 
     /**
@@ -84,7 +84,7 @@ module.exports = {
 			}
 		}
        
-        dcl.update(id, data, 'User', cb);
+        dcl.update(id, data, 'Branch', cb);
     },
 
     /**
@@ -103,6 +103,6 @@ module.exports = {
 			}
 		}
        
-        dcl.delete(id, 'User', cb);
+        dcl.delete(id, 'Branch', cb);
     }
 };

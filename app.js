@@ -6,16 +6,25 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var dotenv = require('dotenv');
 var env = dotenv.load();
+var mongoose = require('mongoose');
+var passport = require('passport');
+var flash    = require('connect-flash');
+var session      = require('express-session');
+
+var databaseUrl = require('./config/database.js')[process.env.NODE_ENV || 'development'];
+// configuration 
+mongoose.connect(databaseUrl); // connect to our database
+
+require('./config/passport')(passport); // pass passport for configuration
+//
 
 var index = require('./routes/index');
 var users = require('./routes/userRoute');
 var seeders = require('./routes/seederRoute');
+var branch = require('./routes/branchRoute');
 
 
 var app = express();
-
-var models = require("./models");
-models();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -25,13 +34,25 @@ app.set('view engine', 'jade');
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// required for passport
+app.use(session({
+    secret: 'ilovescotchscotchyscotchscotch', // session secret
+    resave: true,
+    saveUninitialized: true
+}));
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+app.use(flash()); // use connect-flash for flash messages stored in session
+
+require('./routes/authRoute.js')(app, passport);
 app.use('/', index);
 app.use('/users', users);
-app.use('/seed',seeders);
+app.use('/seed', seeders);
+app.use('/branch', branch);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

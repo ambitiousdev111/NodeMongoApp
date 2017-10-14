@@ -17,7 +17,7 @@ var companySchema = new Schema({
 	},
 	userId: {
 		type: Schema.Types.ObjectId,
-		ref: userModel.User
+		ref: userModel
 	},
 	gstNumber: String,
 	address: String,
@@ -25,7 +25,7 @@ var companySchema = new Schema({
 	city: String,
 	planId: {
 		type: Schema.Types.ObjectId,
-		ref: planModel.Plan
+		ref: planModel
 	},
 	subscription: {
 		startDate:{ type: Date, default: Date.now } ,

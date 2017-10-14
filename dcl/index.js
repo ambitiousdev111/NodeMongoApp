@@ -1,10 +1,13 @@
+let mongoose = require('mongoose');
+let models = require('../models');
+
 module.exports = {
 
-	getAll: (model, callbackFn) => {
+	getAll: (modelName, callbackFn) => {
 
 		let response = {};
 
-		model.find((err, rows) => {
+		models[modelName].find((err, rows) => {
             if(err) {
                 response.status = 'error';
                 response.data = err;
@@ -17,11 +20,11 @@ module.exports = {
         });
 	},
 
-	getById: (id, model, callbackFn) => {
+	getById: (id, modelName, callbackFn) => {
 
 		let response = {};
 
-		model.findOne({_id: id}, (err, row) => {
+		models[modelName].findOne({_id: id}, (err, row) => {
             if(err) {
                 response.status = 'error';
                 response.data = err;
@@ -34,11 +37,11 @@ module.exports = {
         });
 	},
 
-	create:  (data, model, cb) => {
+	create:  (data, modelName, cb) => {
 
 		let response = {};
-
-		let newData = new model(data);
+        data._id = new mongoose.Types.ObjectId();
+		let newData = new models[modelName](data);
 
 		newData.save(data, (err, row) => {
 			if(err) {
@@ -53,11 +56,11 @@ module.exports = {
 		
 	},
 
-	update: (id, data, model, cb) => {
+	update: (id, data, modelName, cb) => {
 
 		let response = {};
 
-		model.findOne({_id: id}, (err, row) => {
+		models[modelName].findOne({_id: id}, (err, row) => {
             if(err) {
                 response.status = 'error';
                 response.data = err;
@@ -88,11 +91,11 @@ module.exports = {
         });
 	},
 
-	delete:  (id, model, cb) => {
+	delete:  (id, modelName, cb) => {
 
 		let response = {};
 
-		model.findByIdAndRemove({_id: id}, (err, deletedRow) => {
+		models[modelName].findByIdAndRemove({_id: id}, (err, deletedRow) => {
             if(err) {
                 response.status = 'error';
                 response.data = err;
@@ -102,6 +105,5 @@ module.exports = {
             }
             cb(response);
         });
-	},
-
+	}
 }
