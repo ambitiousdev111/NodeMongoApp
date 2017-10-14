@@ -11,7 +11,7 @@ var passport = require('passport');
 var flash    = require('connect-flash');
 var session      = require('express-session');
 
-var databaseUrl = require('./config/database.js')[process.env.NODE_ENV || 'development'];
+var databaseUrl = require('./config/database.js')[process.env.NODE_ENV || 'local'];
 // configuration 
 mongoose.connect(databaseUrl); // connect to our database
 
