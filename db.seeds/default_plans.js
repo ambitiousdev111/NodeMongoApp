@@ -1,4 +1,4 @@
-[
+var plans = [
 	{
 		"name":"Trial",
 		"uniqueName":"trial",
@@ -15,3 +15,5 @@
 		"validityInDays":90
 	}
 ]
+
+module.exports = plans;

@@ -56,8 +56,26 @@ module.exports = {
 		
 	},
 
-	update: (id, data, modelName, cb) => {
+   bulkCreate: (data,model,cb)=>{
 
+        let response = {};
+
+        model.collection.insert(data,(err,rows)=>{
+            if(err){
+                response.status='error';
+                response.data = err;
+            }else{
+                response.status= 'success';
+                response.data = rows;
+            }
+            cb(response)
+        });
+
+
+    },
+
+
+	update: (id, data, model, cb) => {
 		let response = {};
 
 		models[modelName].findOne({_id: id}, (err, row) => {

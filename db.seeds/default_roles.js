@@ -1,4 +1,4 @@
-[{
+var default_roles = [{
 
   "name" : "superAdminOfApp",
   "uniqueName": "super_admin_of_app",
@@ -22,3 +22,5 @@
   "permissions": [],
   "scopes": []
 }]
+
+module.exports = default_roles;

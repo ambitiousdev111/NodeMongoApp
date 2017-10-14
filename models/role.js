@@ -2,7 +2,6 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var roleSchema = new Schema({
-	_id: Schema.Types.ObjectId,
 	name: {
 		type: String,
 		trim: true,
@@ -17,6 +16,11 @@ var roleSchema = new Schema({
 		type: String,
 		trim:true,
 		required:true
+	}],
+	scopes: [{
+		type: String,
+		trim: true,
+		required: true
 	}]
 
 });
