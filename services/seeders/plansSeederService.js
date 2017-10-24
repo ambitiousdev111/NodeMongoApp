@@ -11,7 +11,6 @@ seed_plans: (req, res) => {
         newPlan.name = default_plans[i].name;
         newPlan.uniqueName = default_plans[i].uniqueName;
         newPlan.validityInDays = default_plans[i].validityInDays;
-       	
     }
   //       var cb = (response) => {
 		// 	if(response.status === 'success'){

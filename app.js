@@ -22,6 +22,7 @@ var index = require('./routes/index');
 var users = require('./routes/userRoute');
 var seeders = require('./routes/seederRoute');
 var branch = require('./routes/branchRoute');
+var company = require('./routes/companyRoute');
 
 
 var app = express();
@@ -53,6 +54,7 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/seed', seeders);
 app.use('/branch', branch);
+app.use('/company', company);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

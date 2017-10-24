@@ -14,6 +14,6 @@ var plans = [
 		"uniqueName":"pro",
 		"validityInDays":90
 	}
-]
+];
 
 module.exports = plans;

@@ -23,7 +23,6 @@ var branchSchema = new Schema({
 	state: String,
 	city: String,
 	isHq: Boolean
-
 });
 
 module.exports = mongoose.model('Branch', branchSchema);
