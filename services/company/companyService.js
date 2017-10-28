@@ -66,13 +66,6 @@ module.exports = {
         var cb = (response) => {
 			if(response.status === 'success'){
 				if(data.isHq){
-					console.log("+++++++++++++ Yes ++++++++++++++++");
-					console.log("+++++++++++++ Yes ++++++++++++++++");
-					console.log("+++++++++++++ Yes ++++++++++++++++");
-					console.log("+++++++++++++ Yes ++++++++++++++++");
-					console.log("+++++++++++++ Yes ++++++++++++++++");
-					console.log("+++++++++++++ Yes ++++++++++++++++");
-					console.log("+++++++++++++ Yes ++++++++++++++++");
         			dcl.create(data, 'Branch', cb2);
 				} else {
 					res.send(response);
